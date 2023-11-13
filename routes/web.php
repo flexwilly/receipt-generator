@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 //Route::get('/',[EmployeeController::class,'index']);
 
-Route::get('/', [EmployeeController::class, 'generatePDF']);
+Route::get('/',[EmployeeController::class,'index'])->name('dashboard');
 
-Route::get('/download-pdf',[EmployeeController::class,'downloadPDF']);
+Route::get('/sendpdf', [EmployeeController::class, 'sendPDF'])->name('sendpdf');
 
-//Route::get('/ticket',[EmployeeController::class,'generateTicket']);
-Route::get('/ticket',[EmployeeController::class,'generateTicket']);
+Route::get('/download-pdf',[EmployeeController::class,'downloadPDF'])->name('downloadpdf');
+

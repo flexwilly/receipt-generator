@@ -10,11 +10,10 @@ class EmployeeController extends Controller
 {
     //
     public function index(){
-        $employees = Employee::all();
-        return view('index',compact('employees'));
+        return view('dashboard');
     }
     //Generate pdf
-    public function generatePDF(){
+    public function sendPDF(){
         // retreive all records from db
       $employees = Employee::get();
       $data = [
@@ -26,28 +25,23 @@ class EmployeeController extends Controller
         'employees'=> $employees
       ];
 
-      $pdf = Pdf::loadView('index',$data);
+      $pdf = Pdf::loadView('sendEmail',$data);
       ;
 
-      Mail::send('index', $data, function ($message) use($data,$pdf){
+      Mail::send('sendEmail', $data, function ($message) use($data,$pdf){
           $message->to($data['email'],$data['email'])->subject($data['title'])->attachData($pdf->output(),'ticket.pdf');
       });
 
       dd('Mail sent successfully');
+      //return redirect()->route('dashboard')->with('message','PDF Sent successfully');
 
     }
 
+    //code to download a pdf document
     public function downloadPDF(){
         $data = Employee::get();
         $pdf = Pdf::loadview('download',compact('data'));
         return $pdf->download('employee-list.pdf');
-    }
-
-    public function generateTicket(){
-        $data = Employee::get();
-        $pdf = Pdf::loadview('ticket',compact('data'));
-        return $pdf->download('event-ticket.pdf');
-        //return view('ticket',compact('data'));
     }
 
 
