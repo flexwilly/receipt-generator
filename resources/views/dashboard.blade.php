@@ -11,15 +11,46 @@
 <body>
     <section class="mt-4 mb-4">
         <div class="container">
+            <div class="row mb-3">
+                    @if($message = Session::get('message'))
+                    <div class="col-md-6 m-auto">
+                        <div class="alert alert-{{ Session::get('status') }} alert-dismissible fade show" role="alert">
+                        <p>{{ $message }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+            </div>
             <div class="row">
-                <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                          <a href="{{ route('downloadpdf') }}" class="btn btn-success">Download PDF</a>
-                      </div>
-                </div>
-                <div class="col-md-6 mb-3"></div>
-                <div class="form-group">
-                    <a href="{{ route('sendpdf') }}" class="btn btn-primary">Email PDF</a>
+                <div class="col-md-9 m-auto">
+                    <div class="card">
+                        <div class="card-header">
+                                <h1 class="text-center">Quick Links</h1>
+                        </div>
+                        <div class="card-body">
+                                <div class="row text-center">
+                                    <div class="col mb-3">
+                                        <div class="form-group">
+                                            <a href="{{ route('downloadpdf') }}" class="btn btn-success">Download PDF</a>
+                                        </div>
+                                    </div>
+                                <div class="col mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('sendpdf') }}" class="btn btn-primary">Email PDF</a>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('generateticket') }}" class="btn btn-primary">Email Ticket</a>
+                                    </div>
+                                </div>
+                                <div class="col mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('viewticket') }}" class="btn btn-warning">View Ticket</a>
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

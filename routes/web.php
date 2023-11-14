@@ -23,3 +23,6 @@ Route::get('/sendpdf', [EmployeeController::class, 'sendPDF'])->name('sendpdf');
 
 Route::get('/download-pdf',[EmployeeController::class,'downloadPDF'])->name('downloadpdf');
 
+Route::get('/ticket',[EmployeeController::class,'showTicket'])->name('viewticket');
+
+Route::get('/ticket/generate',[EmployeeController::class,'generateTicket'])->name('generateticket');
