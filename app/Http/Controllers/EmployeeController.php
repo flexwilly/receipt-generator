@@ -74,9 +74,11 @@ class EmployeeController extends Controller
 
     public function showTicket(){
             $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate('string'));
-            $pdf = Pdf::loadView('generate',compact('qrcode'));
+            $data = [
+                'qrcode'=>$qrcode,
+            ];
+            $pdf = Pdf::loadView('generate',$data);
             return $pdf->stream();
-
     }
 
 }

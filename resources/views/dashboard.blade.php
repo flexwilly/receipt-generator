@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
 </head>
 <body>
     <section class="mt-4 mb-4">
@@ -27,7 +26,7 @@
                                 <h1 class="text-center">Quick Links</h1>
                         </div>
                         <div class="card-body">
-                                <div class="row text-center">
+                                <div class="row text-center mb-3">
                                     <div class="col mb-3">
                                         <div class="form-group">
                                             <a href="{{ route('downloadpdf') }}" class="btn btn-success">Download PDF</a>
