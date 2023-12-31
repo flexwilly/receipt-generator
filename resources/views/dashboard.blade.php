@@ -47,6 +47,17 @@
                                         <a href="{{ route('viewticket') }}" class="btn btn-warning">View Ticket</a>
                                     </div>
                                 </div>
+                                <div class="col-mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('first_ticket') }}" class="btn btn-secondary">First Ticket</a>
+                                    </div>
+                                </div>
+                                <div class="col-mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('send_ticket') }}" class="btn btn-primary">Mail Ticket</a>
+                                    </div>
+                                </div>
+                                
                                 </div>
                         </div>
                     </div>

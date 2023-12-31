@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,7 @@ Route::get('/download-pdf',[EmployeeController::class,'downloadPDF'])->name('dow
 Route::get('/ticket',[EmployeeController::class,'showTicket'])->name('viewticket');
 
 Route::get('/ticket/generate',[EmployeeController::class,'generateTicket'])->name('generateticket');
+
+//Ticket Routes
+Route::get('/first-ticket',[TicketController::class,'showTicket'])->name('first_ticket');
+Route::get('/send-ticket',[TicketController::class,'sendTicket'])->name('send_ticket');
