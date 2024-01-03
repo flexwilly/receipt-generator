@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   ,<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>First Ticket</title>
@@ -20,7 +20,8 @@
       <section class="mb-4 mt-4">
         <div class="container">
           <div class="row">
-            <div class="col">
+
+            <div class="col-md-11 mx-auto">
                 @foreach($orders as $order)
                 <div class="TTicket mx-auto page-break" style="margin: 0px; height: 192px; width: 665px;">
                     <table width="100%" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;" class="border border-danger">

@@ -26,39 +26,24 @@
                                 <h1 class="text-center">Quick Links</h1>
                         </div>
                         <div class="card-body">
-                                <div class="row text-center mb-3">
-                                    <div class="col mb-3">
-                                        <div class="form-group">
-                                            <a href="{{ route('downloadpdf') }}" class="btn btn-success">Download PDF</a>
-                                        </div>
-                                    </div>
-                                <div class="col mb-3">
-                                    <div class="form-group">
-                                        <a href="{{ route('sendpdf') }}" class="btn btn-primary">Email PDF</a>
-                                    </div>
-                                </div>
-                                <div class="col mb-3">
-                                    <div class="form-group">
-                                        <a href="{{ route('generateticket') }}" class="btn btn-primary">Email Ticket</a>
-                                    </div>
-                                </div>
-                                <div class="col mb-3">
-                                    <div class="form-group">
-                                        <a href="{{ route('viewticket') }}" class="btn btn-warning">View Ticket</a>
-                                    </div>
-                                </div>
-                                <div class="col-mb-3">
+                            <div class="row p-2">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <a href="{{ route('first_ticket') }}" class="btn btn-secondary">First Ticket</a>
                                     </div>
                                 </div>
-                                <div class="col-mb-3">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-group">
                                         <a href="{{ route('send_ticket') }}" class="btn btn-primary">Mail Ticket</a>
                                     </div>
                                 </div>
-                                
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-group">
+                                        <a href="{{ route('email_ticket') }}" class="btn btn-warning ">Direct Mail Ticket</a>
+                                    </div>
                                 </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>

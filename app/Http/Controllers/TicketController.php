@@ -38,7 +38,7 @@ class TicketController extends Controller
 
 
          $data = [
-             'email'=>'gbkoks196@gmail.com',
+             'email'=>'itnomads@gmail.com',
              'title'=>"All Tickets",
          'body'=>"This is a Demo",
          'qrcode'=>$qrcode,
@@ -47,7 +47,7 @@ class TicketController extends Controller
          $pdf = Pdf::loadView('first_ticket',$data);
          //return $pdf->download('ticket.pdf');
          Mail::send('first_ticket', $data, function ($message) use($data,$pdf){
-             $message->to($data['email'],$data['email'])->subject($data['title'])->attachData($pdf->output(),'ticket.pdf');
+             $message->to($data['email'])->subject($data['title'])->attachData($pdf->output(),'ticket.pdf');
          });
 
          //dd('Mail sent successfully');
