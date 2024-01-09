@@ -12,37 +12,30 @@
         <div class="container">
             <div class="row mb-3">
                     @if($message = Session::get('message'))
-                    <div class="col-md-6 m-auto">
-                        <div class="alert alert-{{ Session::get('status') }} alert-dismissible fade show" role="alert">
+                    <div class="col-md-6 mx-auto">
+                        <div class="alert alert-{{ Session::get('status') }} " role="alert">
                         <p>{{ $message }}</p>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
             </div>
-            <div class="row">
-                <div class="col-md-9 m-auto">
+            <div class="row mt-3">
+                <div class="col-md-6 mx-auto">
                     <div class="card">
                         <div class="card-header">
-                                <h1 class="text-center">Quick Links</h1>
+                                <h1 class="text-center">PDF</h1>
                         </div>
                         <div class="card-body">
                             <div class="row p-2">
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <a href="{{ route('first_ticket') }}" class="btn btn-secondary">First Ticket</a>
+                                        <a href="{{ route('email_ticket') }}" class="btn btn-primary">Email PDF</a>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <a href="{{ route('send_ticket') }}" class="btn btn-primary">Mail Ticket</a>
+                                        <a href="{{ route('stream_pdf') }}" class="btn btn-success">Stream PDF</a>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="form-group">
-                                        <a href="{{ route('email_ticket') }}" class="btn btn-warning ">Direct Mail Ticket</a>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>

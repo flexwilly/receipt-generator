@@ -35,8 +35,25 @@ class PDFController extends Controller
         return redirect()->route('dashboard')->with(['message'=>'Email Sent successfully',
          'status'=>'success'
         ]);
+    }
+
+        public function streamPDF(){
+            $orders = Order::get();
+            $order_number = "#000893456";
+            //qr code
+            $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order_number));
+            $data = [
+                'qrcode'=>$qrcode,
+                'orders'=>$orders,
+                'order_number'=>$order_number,
+            ];
+            //$pdf = Pdf::loadView('first_ticket',$data);
+            $pdf = Pdf::loadView('ticket',$data);
+
+            return $pdf->stream();
+        }
 
     }
 
 
-}
+

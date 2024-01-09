@@ -20,16 +20,7 @@ Route::get('/',function(){
  return view('dashboard');
 })->name('dashboard');
 //Ticket Routes
-Route::get('/first-ticket',[TicketController::class,'showTicket'])->name('first_ticket');
-Route::get('/send-ticket',[TicketController::class,'sendTicket'])->name('send_ticket');
-
 
 //new route
 Route::get('send-email-pdf', [PDFController::class, 'index'])->name('email_ticket');
-
-//ticket blade template
-// Route::get('/ticket',function(){
-//     return view('ticket');
-// });
-
-// Route::get('/stream-ticket',[TicketController::class,'streamTicket']);
+Route::get('stream-pdf',[PDFController::class,'streamPDF'])->name('stream_pdf');
