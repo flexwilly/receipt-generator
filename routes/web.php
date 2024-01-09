@@ -26,3 +26,10 @@ Route::get('/send-ticket',[TicketController::class,'sendTicket'])->name('send_ti
 
 //new route
 Route::get('send-email-pdf', [PDFController::class, 'index'])->name('email_ticket');
+
+//ticket blade template
+// Route::get('/ticket',function(){
+//     return view('ticket');
+// });
+
+// Route::get('/stream-ticket',[TicketController::class,'streamTicket']);

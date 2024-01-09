@@ -15,14 +15,18 @@ class MailExample extends Mailable
     use Queueable, SerializesModels;
 
 
-    public $mailData;
+    public $body;
+    public $subject;
+    public $pdf;
     /**
      * Create a new message instance.
      */
-    public function __construct($mailData)
+    public function __construct($body,$subject,$pdf)
     {
         //
-        $this->mailData = $mailData;
+        $this->subject = $subject;
+        $this->pdf =$pdf;
+        $this->body = $body;
     }
 
     /**
@@ -31,7 +35,7 @@ class MailExample extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->mailData['title'],
+            subject: $this->subject,
         );
     }
 
@@ -41,8 +45,7 @@ class MailExample extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'first_ticket',
-            with: $this->mailData
+            view: 'ticket_body',
         );
     }
 
@@ -54,7 +57,7 @@ class MailExample extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromData(fn ()=>$this->mailData['pdf']->output(), 'Ticket.pdf')->withMime('application/pdf')
+            Attachment::fromData(fn ()=>$this->pdf->output(), 'Ticket.pdf')->withMime('application/pdf')
         ];
     }
 }

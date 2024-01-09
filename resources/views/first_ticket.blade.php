@@ -8,9 +8,7 @@
     <title>First Ticket</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
-       .page-break {
-    page-break-after: always;
-       }
+       .page-break {page-break-after: always;}
 
       .TicketLogo { width: 120px; height: auto; }
        #barcode img { height: 130px; width: 130px; max-width:130px; max-height: 130px; }

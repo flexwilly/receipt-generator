@@ -14,24 +14,29 @@ class PDFController extends Controller
 {
     //
     public function index(){
+        $subject = 'Purchased ticket';
+        $body = 'Ticket purchased successfully';
+
         $orders = Order::get();
+        $order_number = "#000893456";
         //qr code
-        $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate('string'));
+        $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order_number));
         $data = [
             'email'=>'itnomads.ke@gmail.com',
-            'title'=>"All Tickets",
-            'body'=>"This is a Demo",
             'qrcode'=>$qrcode,
             'orders'=>$orders,
+            'order_number'=>$order_number,
         ];
-        $pdf = Pdf::loadView('first_ticket',$data);
-        $data["pdf"] = $pdf;
-        Mail::to($data["email"])->send(new MailExample($data));
-        //dd('Mail sent successfully');
+        //$pdf = Pdf::loadView('first_ticket',$data);
+        $pdf = Pdf::loadView('ticket',$data);
+
+        //return $pdf->stream();
+        Mail::to($data["email"])->send(new MailExample($subject,$body,$pdf));
         return redirect()->route('dashboard')->with(['message'=>'Email Sent successfully',
-          'status'=>'success'
-       ]);
+         'status'=>'success'
+        ]);
 
     }
+
 
 }

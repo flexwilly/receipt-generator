@@ -56,4 +56,10 @@ class TicketController extends Controller
        ]);
      }
 
+      //function to stream ticket
+    public function streamTicket(){
+        $pdf = Pdf::loadView('ticket');
+        return $pdf->stream();
+    }
+
 }
