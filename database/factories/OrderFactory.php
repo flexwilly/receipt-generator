@@ -19,13 +19,13 @@ class OrderFactory extends Factory
         return [
             //
             'order_by'=>fake()->name(),
-            'event_num'=>fake()->numberBetween(1,10),
+            'order_num'=>'#3738920089',
+            'event_id'=>fake()->numberBetween(1,10),
             'event_name'=>fake()->text(),
-            'event_city'=>fake()->city(),
-            'event_type'=>fake()->text(),
-            'event_desc'=>fake()->text(),
-            'event_cost'=>fake()->numberBetween(1,8),
-            'event_tickets'=>fake()->randomDigit(),
+            'event_date'=>'2024-10-23',
+            'ticket_id'=>fake()->unique()->numberBetween(1,5),
+            'ticket_cost'=>fake()->numberBetween(1,8),
+            //'event_tickets'=>fake()->randomDigit(),
         ];
     }
 }

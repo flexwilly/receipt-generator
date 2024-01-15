@@ -24,7 +24,7 @@ a.VideoButton:hover, .VideoButton:hover { color: #fff !important; }
     	<div style="float: left; padding:0 80px 10px 0; "><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('/img/simba1.png'))) }}" class="TicketLogo"></div>
         <div style="float: right; color: #000;">
         	<div style="font-size: 12px; font-weight: bold; text-align: right;">ORDERID</div>
-            <div style="font-size: 18px; font-weight: 300; text-align: right; color: #fff;">{{ $order_number }}</div>
+            <div style="font-size: 18px; font-weight: 300; text-align: right; color: #fff;">{{ $order->order_num }}</div>
         </div>
     </div>
 
@@ -42,7 +42,7 @@ a.VideoButton:hover, .VideoButton:hover { color: #fff !important; }
     <div style="margin: 5px 0 15px 0; color: #000;" class="ClearFix">
     	<div style="float: left; width: 65%">
             <div style="font-size: 12px; font-weight: bold;">DATE</div>
-            <div style="font-size: 18px; font-weight: 300; color: #fff;">12/9/2024</div>
+            <div style="font-size: 18px; font-weight: 300; color: #fff;">{{ $order->event_date}}</div>
         </div>
         <div style="float: right; width: 30%">
             <div style="font-size: 12px; font-weight: bold; text-align: right;">TIME</div>
@@ -54,7 +54,7 @@ a.VideoButton:hover, .VideoButton:hover { color: #fff !important; }
     <div style="margin: 0 0 15px 0; color: #000;" class="ClearFix">
     	<div>
             <div style="font-size: 12px; font-weight: bold;">TICKET</div>
-            <div style="font-size: 18px; font-weight: 300; color: #fff;">1</div>
+            <div style="font-size: 18px; font-weight: 300; color: #fff;">{{ $order->ticket_id }}</div>
         </div>
     </div>
     <!------Left/Right-Components-------->
@@ -65,13 +65,13 @@ a.VideoButton:hover, .VideoButton:hover { color: #fff !important; }
         </div>
         <div style="float: right; width: 30%;">
             <div style="font-size: 12px; font-weight: bold; text-align: right;">PRICE</div>
-            <div style="font-size: 18px; font-weight: 300; text-align: right; color: #fff;">KES {{ $order->event_cost }}</div>
+            <div style="font-size: 18px; font-weight: 300; text-align: right; color: #fff;">KES {{ $order->ticket_cost }}</div>
         </div>
     </div>
     <!-----End--Left/Right-Components-------------------->
     <!------Center-Ciomponent------->
     <div style="text-align: center;">
-    	<div id="qrcode" style="margin: 0 auto; padding: 15px; width: 130px;"><img src="data:image/png;base64,{{ $qrcode }}"/></div>
+    	<div id="qrcode" style="margin: 0 auto; padding: 15px; width: 130px;"><img src="data:image/png;base64,{!! base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order->ticket_id)) !!}"/></div>
         <div style="overflow: hidden; margin: 0 auto; padding: 15px 0 0 0; width: auto;">
         	<div>
             	<div><a href="#" class="VideoButton" target="_blank">TIKO SAFI</a></div>

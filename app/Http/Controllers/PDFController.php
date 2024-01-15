@@ -17,15 +17,12 @@ class PDFController extends Controller
         $subject = 'Purchased ticket';
         $body = 'Ticket purchased successfully';
 
-        $orders = Order::get();
-        $order_number = "#000893456";
+        $orders = Order::where('order_num','#3738920089')->get();
         //qr code
-        $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order_number));
+       // $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order_number));
         $data = [
             'email'=>'itnomads.ke@gmail.com',
-            'qrcode'=>$qrcode,
             'orders'=>$orders,
-            'order_number'=>$order_number,
         ];
         //$pdf = Pdf::loadView('first_ticket',$data);
         $pdf = Pdf::loadView('ticket',$data);
@@ -38,16 +35,14 @@ class PDFController extends Controller
     }
 
         public function streamPDF(){
-            $orders = Order::get();
-            $order_number = "#000893456";
+            $orders = Order::where('order_num','#3738920089')->get();
             //qr code
-            $qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate($order_number));
+            //$qrcode = base64_encode(QrCode::format('svg')->size(50)->errorCorrection('H')->generate('#3738920089'));
             $data = [
-                'qrcode'=>$qrcode,
                 'orders'=>$orders,
-                'order_number'=>$order_number,
             ];
             //$pdf = Pdf::loadView('first_ticket',$data);
+
             $pdf = Pdf::loadView('ticket',$data);
 
             return $pdf->stream();

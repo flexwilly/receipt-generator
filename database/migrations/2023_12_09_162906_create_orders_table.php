@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_by');
-            $table->string('event_num');
+            $table->string('order_num');
+            $table->string('event_id');
             $table->string('event_name');
-            $table->string('event_city');
-            $table->string('event_type');
-            $table->string('event_desc');
-            $table->string('event_cost');
-            $table->string('event_tickets');
+            $table->date('event_date');
+            $table->string('ticket_id');
+            $table->string('ticket_cost');
             $table->timestamps();
         });
     }
